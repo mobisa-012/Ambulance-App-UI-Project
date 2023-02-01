@@ -1,5 +1,7 @@
 import 'package:ambulance_app_ui/core/colors.dart';
 import 'package:ambulance_app_ui/core/data_constants.dart';
+import 'package:ambulance_app_ui/core/text_constants.dart';
+import 'package:ambulance_app_ui/screens/verification_page/verification_page.dart';
 import 'package:flutter/material.dart';
 import 'package:page_view_dot_indicator/page_view_dot_indicator.dart';
 
@@ -15,7 +17,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   late PageController pageController;
 
   @override
-  void initState() {   
+  void initState() {
     selectedPage = 0;
     pageController = PageController(initialPage: selectedPage);
     super.initState();
@@ -23,7 +25,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: AppColors.homeBackground,
       body: SafeArea(
@@ -37,10 +38,36 @@ class _OnboardingPageState extends State<OnboardingPage> {
           Expanded(
             flex: 2,
             child: _createStatic(context),
-          )
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          _createButton(context),
         ],
       )),
     );
+  }
+
+  Widget _createButton(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: AppColors.onboardingColor,
+        elevation: 0,
+        padding: EdgeInsets.all(10),
+        textStyle: TextStyle(
+            fontSize: 18,
+            color: Colors.white,
+          ),
+      ),
+        onPressed: () {
+          Navigator.of(context)
+              .pushReplacement(MaterialPageRoute(builder: (_) => VerificationPage()));
+        },
+        child: Text(
+          TextConstants.orderAmbulance,
+          
+        ),
+        );
   }
 
   Widget _createPageView(PageController pageController, BuildContext context) {

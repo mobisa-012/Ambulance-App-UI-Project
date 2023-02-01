@@ -12,4 +12,5 @@ class TextConstants {
   static const String otp = 'Sent OTP';
   static const String verify = 'Verify';
   static const String alwaysReady = 'Always ready, anytime, anywhere';
+  static const String orderAmbulance = 'Order Ambulance';
 }

@@ -32,6 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   page_view_dot_indicator: ^2.0.0
+  google_maps_flutter: ^2.2.3
 
 
   # The following adds the Cupertino Icons font to your application.
