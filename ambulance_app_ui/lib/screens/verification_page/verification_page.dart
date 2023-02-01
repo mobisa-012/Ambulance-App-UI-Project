@@ -17,12 +17,12 @@ class _VerificationPageState extends State<VerificationPage> {
           title: Text(TextConstants.orderAmbulance),
           automaticallyImplyLeading: false,
           elevation: 0,
-          backgroundColor: AppColors.onboardingColor,
+          backgroundColor: Color.fromARGB(224, 138, 118, 230),
           centerTitle: true,
           titleSpacing: 2.0,
         ),
         extendBodyBehindAppBar: true,
-        body: SafeArea(
+        body: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -38,7 +38,6 @@ class _VerificationPageState extends State<VerificationPage> {
               const SizedBox(
                 height: 15,
               ),
-              _createOTPBox(context),
             ],
           ),
         ));
@@ -52,15 +51,69 @@ class _VerificationPageState extends State<VerificationPage> {
   }
 
   Widget _createTextController(BuildContext context) {
-    TextEditingController controller;
-    return TextField();
+    // TextEditingController controller;
+    // int phoneNumber;
+    return TextField(
+      maxLength: 10,
+      keyboardType: TextInputType.phone,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+        filled: true,
+        prefixIcon: Icon(
+          Icons.phone_iphone,
+          color: AppColors.onboardingColor,
+        ),
+        hintStyle: TextStyle(
+          color: AppColors.textColor
+        ),
+        hintText: TextConstants.enterPhone,
+        fillColor: AppColors.homeBackground,
+      ),
+      onChanged: (value) {},
+    );
   }
 
   Widget _createVerifyTextButton(BuildContext context) {
-    return Row();
+    return Center(
+      child: ElevatedButton(
+        child: Text(TextConstants.verify),
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            elevation: 5.0,
+            backgroundColor: AppColors.onboardingColor),
+      ),
+    );
   }
 
-  Widget _createOTPBox(BuildContext context) {
-    return Row();
-  }
+  // Future _createOTPBox(BuildContext context) {
+  //   return showDialog(
+  //     barrierDismissible: false,
+  //       context: context,
+  //       builder: (BuildContext context) {
+  //         return AlertDialog(
+  //           title: Text(TextConstants.otp),
+  //           content: Padding(padding: const EdgeInsets.all(9),
+  //           child: TextFormField(
+  //             decoration: InputDecoration(
+  //               border: OutlineInputBorder(
+  //                 borderRadius: BorderRadius.all(Radius.circular(20))
+  //               )
+  //             ),
+  //             onChanged: (value) {},
+  //           ),),
+  //           contentPadding: EdgeInsets.all(10),
+  //           actions: <Widget>[
+  //             ElevatedButton(
+  //             onPressed: () {}, 
+  //             child: Text('Send'),
+  //             )
+  //           ],
+  //         );
+  //       });
+  // }
 }

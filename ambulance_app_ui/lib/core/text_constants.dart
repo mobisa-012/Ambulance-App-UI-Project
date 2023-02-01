@@ -9,8 +9,9 @@ class TextConstants {
   static const String hosy = 'MedTaxi';
   static const String phoneNumber =
       'Enter your phone number to order an ambullance';
-  static const String otp = 'Sent OTP';
+  static const String otp = 'Enter your OTP';
   static const String verify = 'Verify';
   static const String alwaysReady = 'Always ready, anytime, anywhere';
   static const String orderAmbulance = 'Order Ambulance';
+  static const String enterPhone = 'Enter your phone number....';
 }

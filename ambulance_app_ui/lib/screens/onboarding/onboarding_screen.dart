@@ -33,14 +33,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
         children: [
           Expanded(
             child: _createPageView(pageController, context),
-            flex: 4,
+            flex: 2,
           ),
           Expanded(
-            flex: 2,
             child: _createStatic(context),
-          ),
-          const SizedBox(
-            height: 10,
           ),
           _createButton(context),
         ],
@@ -51,23 +47,22 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget _createButton(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.onboardingColor,
+        backgroundColor: AppColors.onboardingColor.withOpacity(0.5),
         elevation: 0,
         padding: EdgeInsets.all(10),
         textStyle: TextStyle(
-            fontSize: 18,
-            color: Colors.white,
-          ),
-      ),
-        onPressed: () {
-          Navigator.of(context)
-              .pushReplacement(MaterialPageRoute(builder: (_) => VerificationPage()));
-        },
-        child: Text(
-          TextConstants.orderAmbulance,
-          
+          fontSize: 18,
+          color: Colors.white,
         ),
-        );
+      ),
+      onPressed: () {
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (_) => VerificationPage()));
+      },
+      child: Text(
+        TextConstants.orderAmbulance,
+      ),
+    );
   }
 
   Widget _createPageView(PageController pageController, BuildContext context) {
