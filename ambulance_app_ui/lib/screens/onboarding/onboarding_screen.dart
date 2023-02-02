@@ -1,6 +1,6 @@
-import 'package:ambulance_app_ui/core/colors.dart';
-import 'package:ambulance_app_ui/core/data_constants.dart';
-import 'package:ambulance_app_ui/core/text_constants.dart';
+import 'package:ambulance_app_ui/core/const/colors.dart';
+import 'package:ambulance_app_ui/core/const/data_constants.dart';
+import 'package:ambulance_app_ui/core/const/text_constants.dart';
 import 'package:ambulance_app_ui/screens/verification_page/verification_page.dart';
 import 'package:flutter/material.dart';
 import 'package:page_view_dot_indicator/page_view_dot_indicator.dart';
@@ -47,7 +47,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget _createButton(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.onboardingColor.withOpacity(0.5),
+        backgroundColor: Colors.blueAccent,
         elevation: 0,
         padding: EdgeInsets.all(10),
         textStyle: TextStyle(

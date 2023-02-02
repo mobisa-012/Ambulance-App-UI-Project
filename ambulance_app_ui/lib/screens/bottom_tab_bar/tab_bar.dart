@@ -1,6 +1,9 @@
+import 'package:ambulance_app_ui/screens/doctors/doctors.dart';
+import 'package:ambulance_app_ui/screens/hospitals/hospitals.dart';
+import 'package:ambulance_app_ui/screens/map_screen/map_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
+import '../profile/profile_screen.dart';
 
 class TabBarPage extends StatefulWidget {
   const TabBarPage({super.key});
@@ -10,10 +13,41 @@ class TabBarPage extends StatefulWidget {
 }
 
 class _TabBarPageState extends State<TabBarPage> {
+  int currentIndex = 0;
+  void onTap(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
+  List<Widget> pages = [
+    MapScreen(),
+    DoctorsScreen(),
+    HospitalsScreen(),
+    ProfileScreen()
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,        
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: Colors.blueAccent,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), 
+          label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle), 
+              label: 'Doctor'),
+          BottomNavigationBarItem(icon: Icon(Icons.local_hospital),
+          label: 'Hospital'),
+          BottomNavigationBarItem(icon: Icon(Icons.account_circle_sharp),
+          label: 'Me')
+        ],
+        onTap: onTap,
+      ),
+      body: pages[currentIndex],
     );
   }
 }

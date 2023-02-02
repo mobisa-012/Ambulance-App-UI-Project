@@ -14,4 +14,8 @@ class TextConstants {
   static const String alwaysReady = 'Always ready, anytime, anywhere';
   static const String orderAmbulance = 'Order Ambulance';
   static const String enterPhone = 'Enter your phone number....';
+  static const String name = 'Kwamboka Mobisa';
+  static const String mobile = '0112187873';
+  static const String hello = 'Hello...';
+  static const String letsFindDoctor = 'Let\'s find you a doctor';
 }

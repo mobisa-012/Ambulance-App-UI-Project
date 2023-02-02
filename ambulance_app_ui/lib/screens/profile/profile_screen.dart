@@ -1,26 +1,21 @@
 import 'package:ambulance_app_ui/core/const/text_constants.dart';
 import 'package:flutter/material.dart';
-
-
-class MapScreen extends StatefulWidget {
-  const MapScreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
   @override
-  State<MapScreen> createState() => _MapScreenState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(      
+    return Scaffold(
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        title: Text(TextConstants.orderAmbulance),
+        title: Text(TextConstants.name),
         automaticallyImplyLeading: false,        
-      ),
-      body: SingleChildScrollView(
-
       ),
     );
   }

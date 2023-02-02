@@ -1,8 +1,10 @@
-import 'package:ambulance_app_ui/core/colors.dart';
+import 'package:ambulance_app_ui/core/const/colors.dart';
 import 'package:ambulance_app_ui/screens/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  // SystemChrome.setPreferredOrientations(
+  //     [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
 
@@ -15,13 +17,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(     
-        fontFamily: 'Roboto', 
-        colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.blue).copyWith(background: AppColors.homeBackground),
-          visualDensity: VisualDensity.adaptivePlatformDensity
-      ),
-      home:  OnboardingPage(),
+      theme: ThemeData(
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(
+            color: AppColors.textColor
+          )
+        ),
+          fontFamily: 'Roboto',
+          colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+              .copyWith(background: AppColors.homeBackground),
+          visualDensity: VisualDensity.adaptivePlatformDensity),
+      home: OnboardingPage(),
     );
   }
 }
