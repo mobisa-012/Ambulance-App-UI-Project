@@ -3,10 +3,10 @@ import 'package:ambulance_app_ui/core/data/doctor_data.dart';
 import 'package:ambulance_app_ui/screens/doctors/doctor_tag.dart';
 import 'package:flutter/material.dart';
 
-class MyWidget extends StatelessWidget {
+class DoctorDataDetails extends StatelessWidget {
   final DoctorData doctorData;
 
-  const MyWidget({super.key, required this.doctorData});
+  const DoctorDataDetails({super.key, required this.doctorData});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class MyWidget extends StatelessWidget {
             const SizedBox(
               height: 19,
             ),
-            _createDoctorList()
+            // _createDoctorList()
           ],
         ))
       ],
@@ -64,7 +64,7 @@ class MyWidget extends StatelessWidget {
         Row(
           children: [
             DoctorTag(
-              content: '${doctorData}', 
+              content: '${doctorData.specialty}', 
               icon: PathConstants.profile)
           ],
         ))

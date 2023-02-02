@@ -1,16 +1,12 @@
 import 'package:ambulance_app_ui/core/const/colors.dart';
 import 'package:ambulance_app_ui/core/const/text_constants.dart';
-import 'package:ambulance_app_ui/screens/doctors/doctor_info.dart';
+import 'package:ambulance_app_ui/screens/doctors/doctor_body.dart';
 import 'package:flutter/material.dart';
 
-class DoctorsScreen extends StatefulWidget {
-  const DoctorsScreen({super.key});
+class DoctorsScreen extends StatelessWidget {
+  // final DoctorData doctorData;
+  // const DoctorsScreen({super.key, required this.doctorData,});
 
-  @override
-  State<DoctorsScreen> createState() => _DoctorsScreenState();
-}
-
-class _DoctorsScreenState extends State<DoctorsScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -22,7 +18,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
             const SizedBox(
               height: 30,
             ),
-            _doctorInfo(context),
+            _DoctorBody(context),
           ],
         ),
       ),
@@ -49,7 +45,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
     );
   }
 
-  Widget _doctorInfo(BuildContext context) {
+  Widget _DoctorBody(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -76,8 +72,10 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                   size: 20,
                 ),
                 onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => DoctorInfo()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (_) => DoctorBody(
+                            doctorData: doctorData,
+                          )));
                 },
               )
             ],
@@ -110,7 +108,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                 ),
                 onTap: () {
                   Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => DoctorInfo()));
+                      .push(MaterialPageRoute(builder: (_) => DoctorBody(doctorData: doctorData)));
                 },
               )
             ],
@@ -143,7 +141,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                 ),
                 onTap: () {
                   Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => DoctorInfo()));
+                      .push(MaterialPageRoute(builder: (_) => DoctorBody(doctorData: doctorData)));
                 },
               )
             ],
@@ -176,7 +174,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                 ),
                 onTap: () {
                   Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => DoctorInfo()));
+                      .push(MaterialPageRoute(builder: (_) => DoctorBody(doctorData: doctorData)));
                 },
               )
             ],
@@ -209,7 +207,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                 ),
                 onTap: () {
                   Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => DoctorInfo()));
+                      .push(MaterialPageRoute(builder: (_) => DoctorBody(doctorData: doctorData)));
                 },
               )
             ],
@@ -242,7 +240,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                 ),
                 onTap: () {
                   Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (_) => DoctorInfo()));
+                      .push(MaterialPageRoute(builder: (_) => DoctorBody(doctorData: doctorData)));
                 },
               )
             ],

@@ -2,10 +2,10 @@ import 'package:ambulance_app_ui/core/const/colors.dart';
 import 'package:flutter/material.dart';
 
 class DoctorTag extends StatelessWidget {
-  // final String content;
+  final String content;
   final String icon;
   
-  const DoctorTag({super.key, required this.icon});
+  const DoctorTag({super.key, required this.icon, required this.content});
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +19,14 @@ class DoctorTag extends StatelessWidget {
           Image.asset(icon, height: 16, width: 16,
           fit: BoxFit.fill,),
           const SizedBox(width: 7,),
-          // Text(
-          //   content,
-          //   style: TextStyle(
-          //     color: AppColors.onboardingColor,
-          //     fontSize: 14,
-          //     fontWeight: FontWeight.w400
-          //   ),
-          // )
+          Text(
+            content,
+            style: TextStyle(
+              color: AppColors.onboardingColor,
+              fontSize: 14,
+              fontWeight: FontWeight.w400
+            ),
+          )
         ],
       ),
     );
