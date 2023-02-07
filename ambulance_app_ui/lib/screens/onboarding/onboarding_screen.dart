@@ -45,23 +45,28 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 
   Widget _createButton(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.blueAccent,
-        elevation: 0,
-        padding: EdgeInsets.all(10),
-        textStyle: TextStyle(
-          fontSize: 18,
-          color: Colors.white,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blueAccent,
+            elevation: 0,
+            padding: EdgeInsets.all(10),
+            textStyle: TextStyle(
+              fontSize: 18,
+              color: Colors.white,
+            ),
+          ),
+          onPressed: () {
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (_) => VerificationPage()));
+          },
+          child: Text(
+            TextConstants.orderAmbulance,
+          ),
         ),
-      ),
-      onPressed: () {
-        Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (_) => VerificationPage()));
-      },
-      child: Text(
-        TextConstants.orderAmbulance,
-      ),
+      ],
     );
   }
 

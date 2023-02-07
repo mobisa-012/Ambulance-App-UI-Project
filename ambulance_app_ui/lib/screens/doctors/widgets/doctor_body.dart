@@ -1,11 +1,10 @@
 import 'package:ambulance_app_ui/core/const/colors.dart';
 import 'package:ambulance_app_ui/core/const/path_constants.dart';
-import 'package:ambulance_app_ui/core/data/doctor_data.dart';
 import 'package:flutter/material.dart';
 
 class DoctorBody extends StatefulWidget {
-  final DoctorData doctorData;
-  const DoctorBody({super.key, required this.doctorData});
+  // final DoctorData doctorData;
+  const DoctorBody({super.key,});
 
   @override
   State<DoctorBody> createState() => _DoctorBodyState();

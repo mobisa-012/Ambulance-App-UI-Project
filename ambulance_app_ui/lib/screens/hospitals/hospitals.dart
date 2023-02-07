@@ -1,6 +1,5 @@
-import 'package:ambulance_app_ui/core/const/text_constants.dart';
+import 'package:ambulance_app_ui/screens/common_widgets/hospital_card.dart';
 import 'package:flutter/material.dart';
-
 
 class HospitalsScreen extends StatefulWidget {
   const HospitalsScreen({super.key});
@@ -12,16 +11,24 @@ class HospitalsScreen extends StatefulWidget {
 class _HospitalsScreenState extends State<HospitalsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(      
-      appBar: AppBar(
-        elevation: 0,
-        centerTitle: true,
-        title: Text(TextConstants.needAnAmbulance),
-        automaticallyImplyLeading: false,        
-      ),
-      body: SingleChildScrollView(
-
-      ),
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (BuildContext context, int index) {
+        return ListView(
+          scrollDirection: Axis.vertical,
+          children: [
+            HospitalCard(
+              withInfo: true, 
+              name: Text('KNH $index',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w700
+              ),), 
+              onTap: () {},
+              )
+          ],
+        );
+      },
     );
   }
 }

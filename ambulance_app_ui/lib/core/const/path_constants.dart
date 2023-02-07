@@ -6,7 +6,7 @@ class PathConstants {
   static const String hospital = 'assets/icons/hospital.png';
   static const String invite = 'assets/icons/invite.png';
   static const String infol = 'assets/icons/info.png';
-  static const String profile1 = 'assets/icons/profile1.png';
+  static const String profileAvatar = 'assets/icons/profileAvatar.png';
   static const String profile = 'assets/icons/profile.png';
   static const String rectangle = 'assets/images/rectangle.png';
 }

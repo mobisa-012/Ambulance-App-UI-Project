@@ -1,6 +1,6 @@
 import 'package:ambulance_app_ui/core/const/path_constants.dart';
 import 'package:ambulance_app_ui/core/data/doctor_data.dart';
-import 'package:ambulance_app_ui/screens/doctors/doctor_tag.dart';
+import 'package:ambulance_app_ui/screens/doctors/panel/doctor_tag.dart';
 import 'package:flutter/material.dart';
 
 class DoctorDataDetails extends StatelessWidget {

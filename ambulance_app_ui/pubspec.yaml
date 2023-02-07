@@ -82,10 +82,10 @@ flutter:
   fonts:
     - family: Roboto
       fonts:
-         - asset: fonts/Roboto-Regular.ttf
-         - asset: fonts/Roboto-Bold.ttf
-         - asset: fonts/Roboto-Itallic.ttf
-         - asset: fonts/Roboto-Medium.ttf
+         - asset: assets/fonts/Roboto-Regular.ttf
+         - asset: assets/fonts/Roboto-Bold.ttf
+         - asset: assets/fonts/Roboto-Italic.ttf
+         - asset: assets/fonts/Roboto-Medium.ttf
            style: normal
   #   - family: Trajan Pro
   #     fonts:

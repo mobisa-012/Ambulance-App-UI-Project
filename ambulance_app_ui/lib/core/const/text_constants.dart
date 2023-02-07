@@ -18,4 +18,5 @@ class TextConstants {
   static const String mobile = '0112187873';
   static const String hello = 'Hello...';
   static const String letsFindDoctor = 'Let\'s find you a doctor';
+  static const String call = 'Call';
 }

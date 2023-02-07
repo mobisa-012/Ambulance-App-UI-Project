@@ -1,7 +1,5 @@
 import 'package:ambulance_app_ui/core/const/colors.dart';
 import 'package:ambulance_app_ui/core/data/doctor_data.dart';
-import 'package:ambulance_app_ui/screens/doctors/doctor_body.dart';
-import 'package:ambulance_app_ui/screens/doctors/doctor_panel_details.dart';
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -27,8 +25,8 @@ class _DoctorContentState extends State<DoctorContent> {
 
   Widget _createSlidingUpPanel(BuildContext context) {
     return SlidingUpPanel(
-      panel: DoctorDataDetails(doctorData: data),
-      body: DoctorBody(doctorData: data),
+      // panel: DoctorDataDetails(doctorData: data),
+      // body: DoctorBody(doctorData: data),
       minHeight: MediaQuery.of(context).size.height * 0.65,
       maxHeight: MediaQuery.of(context).size.height * 0.87,
       isDraggable: true,
