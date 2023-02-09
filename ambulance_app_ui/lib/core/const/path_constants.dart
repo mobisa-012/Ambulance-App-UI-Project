@@ -9,4 +9,9 @@ class PathConstants {
   static const String profileAvatar = 'assets/icons/profileAvatar.png';
   static const String profile = 'assets/icons/profile.png';
   static const String rectangle = 'assets/images/rectangle.png';
+  static const String doc1 = 'assets/images/doc1.png';
+  static const String doc2 = 'assets/images/doc2.png';
+  static const String doc3 = 'assets/images/doc3.png';
+  static const String doc4 = 'assets/images/doc4.png';
+  static const String doc5 = 'assets/images/doc5.png';
 }
