@@ -22,7 +22,7 @@ class _TabBarPageState extends State<TabBarPage> {
 
   List<Widget> pages = [
     MapScreen(),
-    DoctorsScreen(),
+    DoctorPage(),
     HospitalPage(),
     ProfileScreen()
   ];
