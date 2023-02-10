@@ -1,5 +1,7 @@
 import 'package:ambulance_app_ui/core/const/text_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_map/plugin_api.dart';
 
 
 class MapScreen extends StatefulWidget {
@@ -21,7 +23,12 @@ class _MapScreenState extends State<MapScreen> {
         automaticallyImplyLeading: false,        
       ),
       body: Stack(
-
+        children: [
+          FlutterMap(
+            options: MapOptions(),
+            
+          )
+        ],
       ),
     );
   }
