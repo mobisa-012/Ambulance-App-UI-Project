@@ -15,11 +15,12 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(      
       appBar: AppBar(
         elevation: 0,
+        scrolledUnderElevation: 1.0,
         centerTitle: true,
         title: Text(TextConstants.orderAmbulance),
         automaticallyImplyLeading: false,        
       ),
-      body: SingleChildScrollView(
+      body: Stack(
 
       ),
     );
