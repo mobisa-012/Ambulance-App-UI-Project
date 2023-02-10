@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:ambulance_app_ui/screens/common_widgets/hospital_widget.dart';
+import 'package:ambulance_app_ui/screens/map_screen/map_screen.dart';
 import 'package:flutter/material.dart';
-
 
 class HospitalPage extends StatefulWidget {
   const HospitalPage({super.key});
@@ -33,17 +33,20 @@ class _HospitalPageState extends State<HospitalPage> {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.deepPurpleAccent,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => MapScreen()));
+          },
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
         ),
       ),
       body: Container(
-        padding: const EdgeInsets.only(top: 10, left: 10, right: 0),
+        padding: const EdgeInsets.only(top: 15, left: 10, right: 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
                 child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Text(
                   'Let us find your hospital',
@@ -55,7 +58,7 @@ class _HospitalPageState extends State<HospitalPage> {
               ],
             )),
             const SizedBox(
-              height: 15,
+              height: 25,
             ),
             Row(
               children: [
@@ -115,7 +118,8 @@ class _HospitalPageState extends State<HospitalPage> {
                               blurRadius: 5.0,
                               spreadRadius: 1.1)
                         ],
-                        borderRadius: const BorderRadius.all(Radius.circular(10)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
                         color: const Color.fromARGB(255, 254, 254, 255)),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,7 +155,7 @@ class _HospitalPageState extends State<HospitalPage> {
               height: 20,
             ),
             Expanded(
-              child: ListView.builder(
+                child: ListView.builder(
               itemCount: hInfo.length.toDouble() ~/ 2,
               itemBuilder: (_, i) {
                 int a = 2 * i;
@@ -159,21 +163,19 @@ class _HospitalPageState extends State<HospitalPage> {
                 return HospitalWidget(
                   onTap: () {},
                   //should open the hospitals page
-                  child: Row(                        
-                        children:  [
-                          Image(image: AssetImage(hInfo[a]['image'])),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          Text(
-                            hInfo[b]['name'],
-                            style: const TextStyle(
-                              fontSize: 35,
-                              fontWeight: FontWeight.w600
-                            ),
-                          )
-                        ],
-                      ),                                       
+                  child: Row(
+                    children: [
+                      Image(image: AssetImage(hInfo[a]['image'])),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Text(
+                        hInfo[b]['name'],
+                        style: const TextStyle(
+                            fontSize: 35, fontWeight: FontWeight.w600),
+                      )
+                    ],
+                  ),
                 );
               },
             ))

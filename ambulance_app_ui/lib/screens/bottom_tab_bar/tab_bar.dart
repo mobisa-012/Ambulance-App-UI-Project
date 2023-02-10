@@ -33,7 +33,7 @@ class _TabBarPageState extends State<TabBarPage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,        
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.blueAccent,
+        selectedItemColor: Colors.deepPurpleAccent,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), 
           label: 'Home'),
