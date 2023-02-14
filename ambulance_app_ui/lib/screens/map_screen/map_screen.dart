@@ -47,7 +47,7 @@ class _MapScreenState extends State<MapScreen> {
         //   borderRadius: BorderRadius.circular(20),
         // ),
         child: Icon(
-          Icons.navigation_rounded,
+          Icons.location_searching,
           color: Colors.white,
         ),
       ),
