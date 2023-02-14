@@ -17,6 +17,7 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
+  final panelController = PanelController();
   late LatLng userLocation;
   late MapController mapController;
   Timer? timer;
@@ -112,7 +113,9 @@ class _MapScreenState extends State<MapScreen> {
               topLeft: Radius.circular(40),
               topRight: Radius.circular(40),
             ),
-            panel: OrderScreenDetails(),
+            panel: OrderScreenDetails(
+              panelController:panelController,
+            ),
           )
         ],
       ),
