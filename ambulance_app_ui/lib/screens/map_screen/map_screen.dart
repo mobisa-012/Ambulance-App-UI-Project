@@ -64,7 +64,7 @@ class _MapScreenState extends State<MapScreen> {
                 urlTemplate: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 userAgentPackageName: 'dev.fleaflet.flutter_map.example',
                 retinaMode: MediaQuery.of(context).devicePixelRatio > 1.0,
-                subdomains: ['a','b','c'],
+                // subdomains: ['a','b','c'],
               ),
               MarkerLayer(
                 markers: [
