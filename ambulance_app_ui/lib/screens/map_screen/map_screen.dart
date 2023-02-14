@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'package:ambulance_app_ui/core/const/colors.dart';
 import 'package:ambulance_app_ui/core/const/text_constants.dart';
+import 'package:ambulance_app_ui/screens/map_screen/order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map/plugin_api.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -67,7 +69,6 @@ class _MapScreenState extends State<MapScreen> {
                     print(position);
                   });
                 },
-                // onTap: () {},
                 center: userLocation,
                 zoom: 18,
                 maxZoom: 15,
@@ -91,14 +92,27 @@ class _MapScreenState extends State<MapScreen> {
                     width: 80,
                     point: userLocation,
                     builder: (context) => Container(
-                      child: Icon(Icons.location_on,
-                      color: Colors.red,
-                      size: 45,),
+                      child: Icon(
+                        Icons.location_on,
+                        color: Colors.red,
+                        size: 45,
+                      ),
                     ),
                   )
                 ],
               )
             ],
+          ),
+          SlidingUpPanel(
+            padding: const EdgeInsets.all(12),
+            isDraggable: true,
+            maxHeight: MediaQuery.of(context).size.height * 0.85,
+            minHeight: MediaQuery.of(context).size.height * 0.65,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(40),
+              topRight: Radius.circular(40),
+            ),
+            panel: OrderScreenDetails(),
           )
         ],
       ),
