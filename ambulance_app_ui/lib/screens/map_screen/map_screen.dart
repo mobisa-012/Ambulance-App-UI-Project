@@ -1,9 +1,10 @@
 import 'dart:async';
-
+import 'package:ambulance_app_ui/core/const/colors.dart';
 import 'package:ambulance_app_ui/core/const/text_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map/plugin_api.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:latlong2/latlong.dart';
 
 class MapScreen extends StatefulWidget {
@@ -14,8 +15,24 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-  final mapController = MapController();
+  late LatLng userLocation;
+  late MapController mapController;
   Timer? timer;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserLocation();
+  }
+
+  void getUserLocation() async {
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    setState(() {
+      userLocation = LatLng(position.latitude, position.longitude);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +50,7 @@ class _MapScreenState extends State<MapScreen> {
       ),
       appBar: AppBar(
         elevation: 0,
+        backgroundColor: AppColors.onboardingColor,
         scrolledUnderElevation: 1.0,
         centerTitle: true,
         title: Text(TextConstants.orderAmbulance),
@@ -50,13 +68,13 @@ class _MapScreenState extends State<MapScreen> {
                   });
                 },
                 // onTap: () {},
-                center: LatLng(45.37, 0.1785),
+                center: userLocation,
                 zoom: 18,
                 maxZoom: 15,
                 minZoom: 0,
                 bounds: LatLngBounds(
                   LatLng(-1.28333, 36.81667),
-                  LatLng(51.25709, 0.34018),
+                  LatLng(-1.28333, 36.81667),
                 ),
                 maxBounds: LatLngBounds(LatLng(-90, -180), LatLng(90, 180))),
             children: [
@@ -71,11 +89,13 @@ class _MapScreenState extends State<MapScreen> {
                   Marker(
                     height: 80,
                     width: 80,
-                    point: mapController.center, 
+                    point: userLocation,
                     builder: (context) => Container(
-                      child: Icon(Icons.location_on),
+                      child: Icon(Icons.location_on,
+                      color: Colors.red,
+                      size: 45,),
                     ),
-                    )
+                  )
                 ],
               )
             ],

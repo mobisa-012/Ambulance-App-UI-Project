@@ -21,10 +21,10 @@ class _TabBarPageState extends State<TabBarPage> {
   }
 
   List<Widget> pages = [
-    MapScreen(),
-    DoctorPage(),
+     MapScreen(),
+     DoctorPage(),
     HospitalPage(),
-    ProfileScreen()
+     ProfileScreen()
   ];
 
   @override
