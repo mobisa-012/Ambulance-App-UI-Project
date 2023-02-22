@@ -50,25 +50,25 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget _createName() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: const [
+      children:  [
         Text(
           'Hosy',
           style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w800,
               fontFamily: 'Roboto',
-              color: AppColors.homeBackground),
+              color: Colors.lightBlueAccent),
         ),
         SizedBox(
-          height: 10,
+          height: 30,
         ),
         Text(
-          'Hosy',
+          'Login',
           style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.bold,
               fontFamily: 'Roboto',
-              color: AppColors.homeBackground),
+              color: Colors.lightBlueAccent),
         ),
       ],
     );
@@ -77,9 +77,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget _createJoinFamilyButton(BuildContext context) {
     return Container(
       height: 70,
-      width: 200,
       decoration: BoxDecoration(
-        color: AppColors.homeBackground,
+        color: Colors.lightBlueAccent,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Center(
@@ -104,19 +103,19 @@ class _OnboardingPageState extends State<OnboardingPage> {
   Widget _createDevsName() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children:  [
         Icon(
           Icons.copyright_outlined,
           size: 20,
-          color: Colors.white,
+          color: Colors.lightBlueAccent,
         ),
         SizedBox(
           width: 5,
         ),
         Text(
-          'Yvonne M',
+          '2023|Yvonne M',
           style: TextStyle(
-              fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white),
+              fontSize: 15, fontWeight: FontWeight.w500, color: Colors.lightBlueAccent),
         )
       ],
     );

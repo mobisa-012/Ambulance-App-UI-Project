@@ -1,3 +1,4 @@
+import 'package:ambulance_app_ui/core/const/path_constants.dart';
 import 'package:ambulance_app_ui/screens/login/otp.dart';
 import 'package:flutter/material.dart';
 
@@ -14,20 +15,18 @@ class _PhoneAuthPageState extends State<PhoneAuthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Phone authentication'),
-      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.network(
-                'https://guideposts.org/wp-content/uploads/2022/12/prayer_devotion_marquee-768x432.jpg.optimal.jpg'),
+            Container(margin: const EdgeInsets.only(top: 80),
+              child: Image.asset(PathConstants.onboarding)),
             const SizedBox(
               height: 20,
             ),
             const Text(
-              'The Co-operative University of Kenya',
+              'Hosy',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
@@ -37,6 +36,9 @@ class _PhoneAuthPageState extends State<PhoneAuthPage> {
               margin: const EdgeInsets.only(top: 40, right: 10, left: 10),
               child: TextField(
                 decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20))
+                  ),
                     hintText: 'Enter phone number...',
                     prefix: Padding(
                       padding: EdgeInsets.all(5),
@@ -51,11 +53,12 @@ class _PhoneAuthPageState extends State<PhoneAuthPage> {
               height: 60,
             ),
             Container(
+              height: 55,
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
               margin: const EdgeInsets.all(12),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.teal,
+                  backgroundColor: Colors.lightBlueAccent,
                 ),
                 child: const Text(
                   'login',

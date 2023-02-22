@@ -1,8 +1,11 @@
+// ignore_for_file: deprecated_member_use
+
 import 'dart:convert';
 
 import 'package:ambulance_app_ui/screens/common_widgets/hospital_widget.dart';
 import 'package:ambulance_app_ui/screens/map_screen/map_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HospitalPage extends StatefulWidget {
   const HospitalPage({super.key});
@@ -13,8 +16,8 @@ class HospitalPage extends StatefulWidget {
 
 class _HospitalPageState extends State<HospitalPage> {
   List hInfo = [];
-  _initData() {
-    DefaultAssetBundle.of(context).loadString("json/hosy.json").then((value) {
+  _initData() async{
+    await DefaultAssetBundle.of(context).loadString("json/hosy.json").then((value) {
       hInfo = json.decode(value);
     });
   }
@@ -31,10 +34,17 @@ class _HospitalPageState extends State<HospitalPage> {
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.deepPurpleAccent,
+        backgroundColor: Color.fromARGB(200, 115, 64, 255),
+        title: Text(
+          'Let us find you a hospital',
+          style: TextStyle(
+              fontSize: 18, fontWeight: FontWeight.w700, color: Colors.black),
+        ),
+        centerTitle: true,
         leading: IconButton(
           onPressed: () {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => MapScreen()));
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (_) => MapScreen()));
           },
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
         ),
@@ -44,21 +54,8 @@ class _HospitalPageState extends State<HospitalPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-                child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text(
-                  'Let us find your hospital',
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.black),
-                )
-              ],
-            )),
             const SizedBox(
-              height: 25,
+              height: 15,
             ),
             Row(
               children: [
@@ -155,33 +152,45 @@ class _HospitalPageState extends State<HospitalPage> {
               height: 20,
             ),
             Expanded(
-                child: ListView.builder(
-              itemCount: hInfo.length.toDouble() ~/ 2,
-              itemBuilder: (_, i) {
-                int a = 2 * i;
-                int b = 2 * i + 1;
-                return HospitalWidget(
-                  onTap: () {},
-                  //should open the hospitals page
-                  child: Row(
-                    children: [
-                      Image(image: AssetImage(hInfo[a]['image'])),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Text(
-                        hInfo[b]['name'],
-                        style: const TextStyle(
-                            fontSize: 35, fontWeight: FontWeight.w600),
-                      )
-                    ],
+              child: OverflowBox(
+                maxWidth: MediaQuery.of(context).size.width,
+                child: MediaQuery.removePadding(
+                  removeTop: true,
+                  context: context,
+                  child: ListView.builder(
+                    itemCount: hInfo.length,
+                    itemBuilder: (context, a) {
+                      return HospitalWidget(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              hInfo[a]['name'],
+                              style: TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.w500),
+                            ),
+                          ],
+                        ),
+                        onTap: () async {
+                          String url = hInfo[a]['link'];
+                          openBrowserURL(url: url, inApp: true);
+                        },
+                      );
+                    },
                   ),
-                );
-              },
-            ))
+                ),
+              ),
+            )
           ],
         ),
       ),
     );
+  }
+
+  Future openBrowserURL({required String url, bool inApp = false}) async {
+    if (await canLaunch(url)) {
+      await launch(url,
+          forceSafariVC: true, forceWebView: true, enableJavaScript: true);
+    }
   }
 }

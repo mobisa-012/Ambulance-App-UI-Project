@@ -1,10 +1,10 @@
 // ignore_for_file: avoid_print
 
+import 'package:ambulance_app_ui/screens/bottom_tab_bar/tab_bar.dart';
 import 'package:ambulance_app_ui/screens/map_screen/map_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
-
 
 class OTPScreen extends StatefulWidget {
   final String phoneNumber;
@@ -43,6 +43,8 @@ class _OTPScreenState extends State<OTPScreen> {
     return Scaffold(
       key: globalKey,
       appBar: AppBar(
+        elevation: 0,
+        automaticallyImplyLeading: false,
         title: const Text(
           'OTP Verification',
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
@@ -53,7 +55,7 @@ class _OTPScreenState extends State<OTPScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 40),
+            margin: const EdgeInsets.only(top: 80),
             child: Center(
               child: Text(
                 'Verify +254 - ${widget.phoneNumber}',
@@ -101,6 +103,18 @@ class _OTPScreenState extends State<OTPScreen> {
                 }
               },
             ),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => TabBarPage()));
+            },
+            child: Text('Skip',
+            style: TextStyle(
+              color: Colors.lightBlueAccent,
+              fontSize: 25,
+              fontStyle: FontStyle.italic
+            ),),
           )
         ],
       ),
