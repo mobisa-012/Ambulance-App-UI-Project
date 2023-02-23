@@ -27,7 +27,7 @@ class _OTPScreenState extends State<OTPScreen> {
         color: Color.fromRGBO(30, 60, 87, 1),
         fontWeight: FontWeight.w600),
     decoration: BoxDecoration(
-      border: Border.all(color: const Color.fromRGBO(234, 239, 243, 1)),
+      border: Border.all(color: const Color.fromARGB(200, 115, 64, 255)),
       borderRadius: BorderRadius.circular(20),
     ),
   );
@@ -111,7 +111,7 @@ class _OTPScreenState extends State<OTPScreen> {
             },
             child: Text('Skip',
             style: TextStyle(
-              color: Colors.lightBlueAccent,
+              color: Color.fromARGB(200, 115, 64, 255),
               fontSize: 25,
               fontStyle: FontStyle.italic
             ),),

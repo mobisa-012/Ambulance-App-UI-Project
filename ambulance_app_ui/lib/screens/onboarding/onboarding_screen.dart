@@ -57,7 +57,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               fontSize: 25,
               fontWeight: FontWeight.w800,
               fontFamily: 'Roboto',
-              color: Colors.lightBlueAccent),
+              color: Color.fromARGB(200, 115, 64, 255)),
         ),
         SizedBox(
           height: 30,
@@ -68,7 +68,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               fontSize: 25,
               fontWeight: FontWeight.bold,
               fontFamily: 'Roboto',
-              color: Colors.lightBlueAccent),
+              color: Color.fromARGB(200, 115, 64, 255)),
         ),
       ],
     );
@@ -78,7 +78,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     return Container(
       height: 70,
       decoration: BoxDecoration(
-        color: Colors.lightBlueAccent,
+        color: Color.fromARGB(200, 115, 64, 255),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Center(
@@ -107,7 +107,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         Icon(
           Icons.copyright_outlined,
           size: 20,
-          color: Colors.lightBlueAccent,
+          color: Color.fromARGB(200, 115, 64, 255),
         ),
         SizedBox(
           width: 5,
@@ -115,7 +115,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         Text(
           '2023|Yvonne M',
           style: TextStyle(
-              fontSize: 15, fontWeight: FontWeight.w500, color: Colors.lightBlueAccent),
+              fontSize: 15, fontWeight: FontWeight.w500, color: Color.fromARGB(200, 115, 64, 255)),
         )
       ],
     );

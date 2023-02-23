@@ -48,7 +48,7 @@ class _MapScreenState extends State<MapScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         elevation: 0,
-        backgroundColor: Colors.deepPurpleAccent,
+        backgroundColor: Color.fromARGB(200, 115, 64, 255),
         // shape: ContinuousRectangleBorder(
         //   borderRadius: BorderRadius.circular(20),
         // ),
@@ -59,7 +59,7 @@ class _MapScreenState extends State<MapScreen> {
       ),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: AppColors.onboardingColor,
+        backgroundColor: Color.fromARGB(200, 115, 64, 255),
         scrolledUnderElevation: 1.0,
         centerTitle: true,
         title: Text(TextConstants.orderAmbulance),
@@ -110,19 +110,19 @@ class _MapScreenState extends State<MapScreen> {
               )
             ],
           ),
-          SlidingUpPanel(
-            padding: const EdgeInsets.all(12),
-            isDraggable: true,
-            maxHeight: MediaQuery.of(context).size.height * 0.85,
-            minHeight: MediaQuery.of(context).size.height * 0.65,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(40),
-              topRight: Radius.circular(40),
-            ),
-            panel: OrderScreenDetails(
-              panelController: panelController,
-            ),
-          )
+          // SlidingUpPanel(
+          //   padding: const EdgeInsets.all(12),
+          //   isDraggable: true,
+          //   maxHeight: MediaQuery.of(context).size.height * 0.85,
+          //   minHeight: MediaQuery.of(context).size.height * 0.65,
+          //   borderRadius: BorderRadius.only(
+          //     topLeft: Radius.circular(40),
+          //     topRight: Radius.circular(40),
+          //   ),
+          //   panel: OrderScreenDetails(
+          //     panelController: panelController,
+          //   ),
+          // )
         ],
       ),
     );

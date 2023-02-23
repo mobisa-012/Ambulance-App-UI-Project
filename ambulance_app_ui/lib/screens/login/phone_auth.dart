@@ -54,11 +54,12 @@ class _PhoneAuthPageState extends State<PhoneAuthPage> {
             ),
             Container(
               height: 55,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+              width: 150,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(25)),
               margin: const EdgeInsets.all(12),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.lightBlueAccent,
+                  backgroundColor: Color.fromARGB(200, 115, 64, 255),
                 ),
                 child: const Text(
                   'login',
