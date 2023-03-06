@@ -32,7 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
   page_view_dot_indicator: ^2.0.0
-  google_maps_flutter: ^2.2.3
+  google_maps_flutter: ^2.2.5
   sliding_up_panel: ^2.0.0+1
   pinput: ^2.2.30
   firebase_auth: ^4.2.8
@@ -46,6 +46,12 @@ dependencies:
   geolocator: ^9.0.2
   firebase_core: ^2.7.0
   url_launcher: ^6.1.9
+  bloc: ^8.1.1
+  flutter_bloc: ^8.1.2
+  equatable: ^2.0.5
+  shimmer: ^2.0.0
+  cloud_firestore: ^4.4.3
+  firebase_storage: ^11.0.14
 
 dev_dependencies:
   flutter_test:

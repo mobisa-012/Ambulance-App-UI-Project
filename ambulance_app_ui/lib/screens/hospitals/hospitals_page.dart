@@ -3,7 +3,7 @@
 import 'dart:convert';
 
 import 'package:ambulance_app_ui/screens/common_widgets/hospital_widget.dart';
-import 'package:ambulance_app_ui/screens/map_screen/map_screen.dart';
+import 'package:ambulance_app_ui/screens/map_screen/page/map_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 

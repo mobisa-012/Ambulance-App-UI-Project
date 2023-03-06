@@ -1,4 +1,3 @@
-import 'package:ambulance_app_ui/core/const/colors.dart';
 import 'package:flutter/material.dart';
 
 class HospitalWidget extends StatelessWidget {

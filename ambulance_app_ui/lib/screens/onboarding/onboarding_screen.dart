@@ -24,15 +24,15 @@ class _OnboardingPageState extends State<OnboardingPage> {
           children: [
             _createChurchLogo(),
             const SizedBox(
-              height: 60,
+              height: 55,
             ),
             _createName(),
             const SizedBox(
-              height: 90,
+              height: 85,
             ),
             _createJoinFamilyButton(context),
             const SizedBox(
-              height: 120,
+              height: 100,
             ),
             _createDevsName(),
           ],

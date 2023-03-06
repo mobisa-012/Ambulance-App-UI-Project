@@ -1,20 +1,22 @@
-import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DoctorData {
+  final String location;
   final String name;
-  final String image;
-  final String specialty;
-  final Widget call;
-  final int years;
+  final String phone;
+  final String title;
 
   DoctorData(
-      {required this.call,
-      required this.image,
-      required this.name,
-      required this.specialty,
-      required this.years});
-  @override
-  String toString() {
-    return 'DoctorData(call: $call, image: $image, name: $name,specialty: $specialty, years: $years)';
+      {required this.name,
+      required this.location,
+      required this.phone,
+      required this.title});
+
+  factory DoctorData.fromSnapshot(DocumentSnapshot documentSnapshot) {
+    return DoctorData(
+        name: documentSnapshot['name'],
+        location: documentSnapshot['location'],
+        phone: documentSnapshot['phone'],
+        title: documentSnapshot['title']);
   }
 }

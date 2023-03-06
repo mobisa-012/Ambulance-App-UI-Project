@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:ambulance_app_ui/screens/bottom_tab_bar/tab_bar.dart';
-import 'package:ambulance_app_ui/screens/map_screen/map_screen.dart';
+import 'package:ambulance_app_ui/screens/map_screen/page/map_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
