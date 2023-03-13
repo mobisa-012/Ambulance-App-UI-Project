@@ -32,7 +32,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             ),
             _createJoinFamilyButton(context),
             const SizedBox(
-              height: 100,
+              height: 150,
             ),
             _createDevsName(),
           ],
@@ -60,16 +60,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
               color: Color.fromARGB(200, 115, 64, 255)),
         ),
         SizedBox(
-          height: 30,
+          height: 20,
         ),
-        Text(
-          'Login',
-          style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Roboto',
-              color: Color.fromARGB(200, 115, 64, 255)),
-        ),
+       
       ],
     );
   }

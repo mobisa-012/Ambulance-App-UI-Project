@@ -25,16 +25,15 @@ class DoctorPage extends StatelessWidget {
   }
 
   BlocProvider<DoctorBloc> _body(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<DoctorBloc>(
       create: (BuildContext context) => DoctorBloc(),
-      child: BlocConsumer(
+      child: BlocConsumer<DoctorBloc, DoctorState>(
         listenWhen: (_, currState) => currState is DoctorLoadState,
-        listener: (context, state) {
-          if (state is DoctorLoadState) {}
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           return DoctorWidget();
         },
+        buildWhen: (_, currState) => currState is DoctorInitial,
       ),
     );
   }

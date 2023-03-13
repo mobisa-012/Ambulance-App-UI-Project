@@ -105,46 +105,43 @@ class _HospitalPageState extends State<HospitalPage> {
                   onTap: () {},
                   //should open to allow client book an appointment home
                   child: Container(
-                    padding: const EdgeInsets.all(10),
-                    height: 145,
-                    width: 180,
-                    decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.black.withOpacity(0.1),
-                              blurRadius: 5.0,
-                              spreadRadius: 1.1)
-                        ],
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
-                        color: const Color.fromARGB(255, 254, 254, 255)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.home_filled,
-                          color: Colors.deepPurple.withOpacity(0.1),
-                          size: 45,
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Text(
-                          'Home Visit',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w700),
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        const Text(
-                          'Call the doc home',
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w400),
-                        )
-                      ],
-                    ),
-                  ),
+          padding: const EdgeInsets.all(10),
+          height: 145,
+          width: 180,
+          decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 5.0,
+                    spreadRadius: 1.1)
+              ],
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
+              color: const Color.fromARGB(255, 254, 254, 255)),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(
+                Icons.home_filled,
+                color: Colors.deepPurple.withOpacity(0.1),
+                size: 45,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
+                'Home Visit',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              const Text(
+                'Call the doc home',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+              )
+            ],
+          ),
+        ),
                 ),
               ],
             ),

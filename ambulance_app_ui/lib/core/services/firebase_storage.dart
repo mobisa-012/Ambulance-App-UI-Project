@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
+import 'package:path/path.dart' as path;
 
 class FirebaseStorageService {
   final FirebaseStorage storage = FirebaseStorage.instance;
@@ -14,8 +16,9 @@ class FirebaseStorageService {
       'assets/images/doc5.png',
     ];
     for (String assetPath in assetPaths) {
-      final File file = File(assetPath);
-      final Reference storageRef = storage.ref().child('images/${file.name}');
+      final File file = File(path.join('assets', assetPath));
+      final String fileName = path.basenameWithoutExtension(file.path);
+      final Reference storageRef = storage.ref().child('images/$fileName');
       final UploadTask uploadTask = storageRef.putFile(file);
       final TaskSnapshot downloadUrl = await uploadTask;
       final String url = await downloadUrl.ref.getDownloadURL();
@@ -23,5 +26,4 @@ class FirebaseStorageService {
     }
     return null;
   }
-  
 }
