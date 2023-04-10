@@ -1,11 +1,9 @@
 // ignore_for_file: deprecated_member_use
-
-import 'dart:convert';
-
-import 'package:ambulance_app_ui/screens/common_widgets/hospital_widget.dart';
+import 'package:ambulance_app_ui/screens/hospitals/hos_appointment_form.dart';
+import 'package:ambulance_app_ui/screens/hospitals/hospital_container.dart';
 import 'package:ambulance_app_ui/screens/map_screen/page/map_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HospitalPage extends StatefulWidget {
   const HospitalPage({super.key});
@@ -15,19 +13,6 @@ class HospitalPage extends StatefulWidget {
 }
 
 class _HospitalPageState extends State<HospitalPage> {
-  List hInfo = [];
-  _initData() async{
-    await DefaultAssetBundle.of(context).loadString("json/hosy.json").then((value) {
-      hInfo = json.decode(value);
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _initData();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +35,7 @@ class _HospitalPageState extends State<HospitalPage> {
         ),
       ),
       body: Container(
-        padding: const EdgeInsets.only(top: 15, left: 10, right: 0),
+        padding: const EdgeInsets.only(top: 10, left: 10, right: 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -60,7 +45,10 @@ class _HospitalPageState extends State<HospitalPage> {
             Row(
               children: [
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => HosAppointment()));
+                  },
                   // should open to allown client book an appointmetn
                   child: Container(
                     padding: const EdgeInsets.all(10),
@@ -105,89 +93,80 @@ class _HospitalPageState extends State<HospitalPage> {
                   onTap: () {},
                   //should open to allow client book an appointment home
                   child: Container(
-          padding: const EdgeInsets.all(10),
-          height: 145,
-          width: 180,
-          decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 5.0,
-                    spreadRadius: 1.1)
-              ],
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              color: const Color.fromARGB(255, 254, 254, 255)),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(
-                Icons.home_filled,
-                color: Colors.deepPurple.withOpacity(0.1),
-                size: 45,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              const Text(
-                'Home Visit',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              const Text(
-                'Call the doc home',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
-              )
-            ],
-          ),
-        ),
+                    padding: const EdgeInsets.all(10),
+                    height: 145,
+                    width: 180,
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              blurRadius: 5.0,
+                              spreadRadius: 1.1)
+                        ],
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                        color: const Color.fromARGB(255, 254, 254, 255)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.home_filled,
+                          color: Colors.deepPurple.withOpacity(0.1),
+                          size: 45,
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const Text(
+                          'Home Visit',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w700),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        const Text(
+                          'Call the doc home',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w400),
+                        )
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
             const SizedBox(
               height: 20,
             ),
-            Expanded(
-              child: OverflowBox(
-                maxWidth: MediaQuery.of(context).size.width,
-                child: MediaQuery.removePadding(
-                  removeTop: true,
-                  context: context,
+            StreamBuilder(
+              stream: FirebaseFirestore.instance
+                  .collection('Hospitals')
+                  .snapshots(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return const CircularProgressIndicator();
+                }
+                return Expanded(
                   child: ListView.builder(
-                    itemCount: hInfo.length,
-                    itemBuilder: (context, a) {
-                      return HospitalWidget(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              hInfo[a]['name'],
-                              style: TextStyle(
-                                  fontSize: 22, fontWeight: FontWeight.w500),
-                            ),
-                          ],
+                    itemCount: snapshot.data!.docs.length,
+                    itemBuilder: (context, index) {
+                      DocumentSnapshot hospital = snapshot.data!.docs[index];
+                      return Card(
+                        margin: const EdgeInsets.symmetric(vertical: 6),
+                        child: HospitalContainer(
+                          name: hospital['name'],
+                          link: hospital['lng'],
                         ),
-                        onTap: () async {
-                          String url = hInfo[a]['link'];
-                          openBrowserURL(url: url, inApp: true);
-                        },
                       );
                     },
                   ),
-                ),
-              ),
+                );
+              },
             )
           ],
         ),
       ),
     );
-  }
-
-  Future openBrowserURL({required String url, bool inApp = false}) async {
-    if (await canLaunch(url)) {
-      await launch(url,
-          forceSafariVC: true, forceWebView: true, enableJavaScript: true);
-    }
   }
 }

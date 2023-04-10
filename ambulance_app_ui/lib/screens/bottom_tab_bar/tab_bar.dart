@@ -1,4 +1,4 @@
-import 'package:ambulance_app_ui/screens/doctors/page/doctors.dart';
+import 'package:ambulance_app_ui/screens/doctors/doctors_page.dart';
 import 'package:ambulance_app_ui/screens/hospitals/hospitals_page.dart';
 import 'package:ambulance_app_ui/screens/map_screen/page/map_screen.dart';
 import 'package:flutter/material.dart';
