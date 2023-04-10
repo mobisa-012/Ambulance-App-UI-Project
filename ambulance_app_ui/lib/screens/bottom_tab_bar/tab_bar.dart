@@ -1,6 +1,6 @@
 import 'package:ambulance_app_ui/screens/doctors/doctors_page.dart';
 import 'package:ambulance_app_ui/screens/hospitals/hospitals_page.dart';
-import 'package:ambulance_app_ui/screens/map_screen/page/map_screen.dart';
+import 'package:ambulance_app_ui/screens/map_screen/page/homescreen.dart';
 import 'package:flutter/material.dart';
 
 import '../profile/profile_screen.dart';
@@ -21,7 +21,7 @@ class _TabBarPageState extends State<TabBarPage> {
   }
 
   List<Widget> pages = [
-     MapScreen(),
+     HomeScreen(),
      DoctorPage(),
     HospitalPage(),
      ProfileScreen()

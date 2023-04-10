@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 import 'package:ambulance_app_ui/screens/hospitals/hos_appointment_form.dart';
 import 'package:ambulance_app_ui/screens/hospitals/hospital_container.dart';
-import 'package:ambulance_app_ui/screens/map_screen/page/map_screen.dart';
+import 'package:ambulance_app_ui/screens/map_screen/page/homescreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +29,7 @@ class _HospitalPageState extends State<HospitalPage> {
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (_) => MapScreen()));
+                MaterialPageRoute(builder: (_) => HomeScreen()));
           },
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
         ),

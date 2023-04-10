@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
 import 'package:ambulance_app_ui/screens/bottom_tab_bar/tab_bar.dart';
-import 'package:ambulance_app_ui/screens/map_screen/page/map_screen.dart';
+import 'package:ambulance_app_ui/screens/map_screen/page/homescreen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
@@ -93,7 +93,7 @@ class _OTPScreenState extends State<OTPScreen> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const MapScreen()),
+                              builder: (context) => const HomeScreen()),
                           (route) => false);
                     }
                   });
@@ -132,7 +132,7 @@ class _OTPScreenState extends State<OTPScreen> {
           if (value.user != null) {
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => const MapScreen()),
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
                 (route) => false);
           }
         });
