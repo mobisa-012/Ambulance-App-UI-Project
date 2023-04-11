@@ -1,4 +1,5 @@
 // ignore_for_file: deprecated_member_use
+import 'package:ambulance_app_ui/screens/hospitals/hos__book_appointment.dart';
 import 'package:ambulance_app_ui/screens/hospitals/hos_appointment_form.dart';
 import 'package:ambulance_app_ui/screens/hospitals/hospital_container.dart';
 import 'package:ambulance_app_ui/screens/map_screen/page/homescreen.dart';
@@ -65,12 +66,9 @@ class _HospitalPageState extends State<HospitalPage> {
                         ]),
                     child: Column(
                       children: [
-                        GestureDetector(
-                          onTap: () {},
-                          child: const Icon(
-                            Icons.local_hospital_rounded,
-                            size: 50,
-                          ),
+                        const Icon(
+                          Icons.local_hospital_rounded,
+                          size: 50,
                         ),
                         const SizedBox(
                           height: 18,
@@ -90,8 +88,10 @@ class _HospitalPageState extends State<HospitalPage> {
                   width: 20,
                 ),
                 GestureDetector(
-                  onTap: () {},
-                  //should open to allow client book an appointment home
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => ClinicVisitAppointmentForm()));
+                  },
                   child: Container(
                     padding: const EdgeInsets.all(10),
                     height: 145,

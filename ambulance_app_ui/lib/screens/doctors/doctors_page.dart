@@ -1,5 +1,6 @@
 import 'package:ambulance_app_ui/screens/doctors/doc_appointment_form.dart';
 import 'package:ambulance_app_ui/screens/doctors/doc_listview.dart';
+import 'package:ambulance_app_ui/screens/hospitals/hos__book_appointment.dart';
 import 'package:flutter/material.dart';
 
 class DoctorPage extends StatefulWidget {
@@ -101,7 +102,7 @@ class _DoctorPageState extends State<DoctorPage> {
         GestureDetector(
           onTap: () {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => DocAppointment()));
+                .push(MaterialPageRoute(builder: (_) => ClinicVisitAppointmentForm()));
           },
           child: Container(
             padding: const EdgeInsets.all(10),
