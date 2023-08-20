@@ -14,5 +14,6 @@ class PathConstants {
   static const String doc3 = 'assets/images/doc3.png';
   static const String doc4 = 'assets/images/doc4.png';
   static const String doc5 = 'assets/images/doc5.png';
+  static const String side = 'assets/images/side.svg';
   static const String onboarding = 'assets/images/onboarding.png';
 }

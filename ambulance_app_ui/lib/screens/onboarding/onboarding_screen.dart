@@ -78,7 +78,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         child: GestureDetector(
           onTap: () {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => const PhoneAuthPage()));
+                .push(MaterialPageRoute(builder: (_) => const MobileAuth()));
           },
           child: const Text(
             'Order Ambulance',
