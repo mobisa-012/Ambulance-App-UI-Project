@@ -74,15 +74,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   fontWeight: FontWeight.w500
                 ),),
               ),
-              ProfileContainer(
-                withArrow: true,
-                onTap: () {},
-                child: Text('Notifications',
-                style: TextStyle(
-                  fontSize: 17,
-                  fontWeight: FontWeight.w500
-                ),),
-              ),
+              // ProfileContainer(
+              //   withArrow: true,
+              //   onTap: () {},
+              //   child: Text('Notifications',
+              //   style: TextStyle(
+              //     fontSize: 17,
+              //     fontWeight: FontWeight.w500
+              //   ),),
+              // ),
               const SizedBox(height: 15,),
               Text('Join our community',
               style: TextStyle(

@@ -48,6 +48,7 @@ class _DoctorPageState extends State<DoctorPage> {
       ]),
     );
   }
+   
    Widget docContainers(BuildContext context) {
     return Row(
       children: [

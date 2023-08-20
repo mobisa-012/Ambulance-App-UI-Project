@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -49,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
             position: ambulance.location,
             infoWindow: InfoWindow(
                 title: ambulance.ambType,
-                snippet: '${ambulance.ambType} - ${ambulance.cost}'));
+                snippet: '${ambulance.plateNo} - ${ambulance.cost}'));
       }).toList();
     });
   }
@@ -97,7 +96,6 @@ class _HomeScreenState extends State<HomeScreen> {
     controller = mapController;
   }
 
-
   void searchLocations() async {
     final query = locationController.text;
     if (query.isEmpty) {
@@ -115,6 +113,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final panelHeightClosed = MediaQuery.of(context).size.height * 0.1;
+    final panelHeightOpened = MediaQuery.of(context).size.height * 0.4;
     return Scaffold(
       appBar: AppBar(
         title: Text('Order Ambulance'),
@@ -125,24 +125,22 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Stack(
         children: [
-          SlidingUpPanel(
+          SlidingUpPanel(            
             panelBuilder: (controller) => FirstPanel(
               controller: controller,
             ),
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(50),
-              topRight: Radius.circular(50)
-            ),
-          //   minHeight: MediaQuery.of(context).size.height * 0.2,
-          //  maxHeight: MediaQuery.of(context).size.height * 0.5,
+                topLeft: Radius.circular(50), topRight: Radius.circular(50)),
+              minHeight: panelHeightClosed,
+             maxHeight: panelHeightOpened,
             controller: panelController,
             isDraggable: true,
             body: GoogleMap(
-            initialCameraPosition: CameraPosition(target: center, zoom: 15),
-            onMapCreated: onMapCreated,
-            markers: markers.toSet(),
+              initialCameraPosition: CameraPosition(target: center, zoom: 15),
+              onMapCreated: onMapCreated,
+              markers: markers.toSet(),
+            ),
           ),
-          ),          
           Positioned(
               left: 16,
               right: 16,

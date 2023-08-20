@@ -23,7 +23,7 @@ class HospitalContainer extends StatelessWidget {
     return GestureDetector(
       onTap: () async {
         String url = link;
-        openBroserUrl(url: url, inApp: false);
+        openBroserUrl(url: url, inApp: true);
       },
       child: Container(
         padding: const EdgeInsets.all(16),

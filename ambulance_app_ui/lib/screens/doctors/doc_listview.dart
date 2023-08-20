@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:ambulance_app_ui/screens/doctors/doc_appointment_form.dart';
 import 'package:ambulance_app_ui/screens/doctors/doc_review.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

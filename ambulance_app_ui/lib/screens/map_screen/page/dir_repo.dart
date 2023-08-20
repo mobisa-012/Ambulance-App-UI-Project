@@ -1,18 +1,20 @@
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:google_maps_webservice/directions.dart';
+// // ignore_for_file: import_of_legacy_library_into_null_safe
 
-class DirectionsRepository {
-  late GoogleMapsDirections directions;
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:google_maps_webservice/directions.dart';
 
-  DirectionsRepository() {
-    directions =
-        GoogleMapsDirections(apiKey: 'AIzaSyB4QwU_ICnLEmJsvmVYz0KtzX-cDFtDSeQ');
-  }
-  Future<DirectionsResponse> getDirections(
-      LatLng origin, LatLng destination) async {
-    return await directions.directionsWithLocation(
-        Location(origin.latitude, destination.longitude),
-        Location(destination.latitude, destination.longitude),
-        travelMode: TravelMode.driving);
-  }
-}
+// class DirectionsRepository {
+//   late GoogleMapsDirections directions;
+
+//   DirectionsRepository() {
+//     directions =
+//         GoogleMapsDirections(apiKey: 'AIzaSyB4QwU_ICnLEmJsvmVYz0KtzX-cDFtDSeQ');
+//   }
+//   Future<DirectionsResponse> getDirections(
+//       LatLng origin, LatLng destination) async {
+//     return await directions.directionsWithLocation(
+//         Location(origin.latitude, destination.longitude),
+//         Location(destination.latitude, destination.longitude),
+//         travelMode: TravelMode.driving);
+//   }
+// }

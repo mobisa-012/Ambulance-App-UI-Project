@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -20,24 +22,31 @@ class _FirstPanelState extends State<FirstPanel> {
         if (!snapshot.hasData) {
           return CircularProgressIndicator();
         }
-        return Expanded(
-          child: ListView.builder(
-            itemCount: snapshot.data!.docs.length,
-            itemBuilder: (context, index) {
-              DocumentSnapshot ambulance = snapshot.data!.docs[index];
-              return ListTile(
-                onTap: () {
-                  launch('tel:${ambulance.get('phoneNumber')}');
+        return Flex(
+         direction: Axis.vertical,
+          children: [
+            Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(20),
+              child: ListView.builder(
+                itemCount: snapshot.data!.docs.length,
+                itemBuilder: (context, index) {
+                  DocumentSnapshot ambulance = snapshot.data!.docs[index];
+                  return ListTile(
+                    onTap: () {
+                      launch('tel:${ambulance.get('phoneNumber')}');
+                    },
+                    leading: CircleAvatar(
+                      backgroundImage: NetworkImage(ambulance['image']),
+                    ),
+                    trailing: Text(ambulance['plateNo']),
+                    title: Text(ambulance['ambType']),
+                    subtitle: Text(ambulance['cost']),
+                  );
                 },
-                leading: CircleAvatar(
-                  backgroundImage: NetworkImage(ambulance['image']),
-                ),
-                trailing: Text(ambulance['plateNo']),
-                title: Text(ambulance['ambType']),
-                subtitle: Text(ambulance['cost']),
-              );
-            },
-          ),
+              ),
+            ),
+          ),]
         );
       },
     );
